@@ -1,7 +1,7 @@
 class Bankomat
 {
 public:
-	Bankomat() ;
+	Bankomat();
 	Bankomat(const int nominals, const int identificationNumber, const int expense, const int max,  const int min) ;
 	Bankomat(const Bankomat& other) ;
 	~Bankomat();
