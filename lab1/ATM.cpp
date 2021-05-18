@@ -13,7 +13,7 @@ ATM::ATM(unsigned int id, const unsigned long maxCash, const unsigned long minBi
 	setThousands(oneThousand);
 }
 
-unsigned long ATM::putMoneyIn(unsigned short oneThousand, unsigned short fiveHundred, unsigned short oneHundred, unsigned short fifty, unsigned short ten)
+unsigned long ATM::putMoneyIn(const unsigned short oneThousand, const unsigned short fiveHundred, const unsigned short oneHundred, const unsigned short fifty, const unsigned short ten)
 {
 	setTens(getTens()+ ten);
 	setFiftys(getFiftys()+ fifty);
@@ -26,7 +26,7 @@ unsigned long ATM::putMoneyIn(unsigned short oneThousand, unsigned short fiveHun
 
 std::string ATM::withdrawMoney(unsigned long cash)
 {
-	if (cash % long(10) != 0) {
+	if (cash % MULTIPLICITY_OF_SUM != 0) {
 		return std::string("Cant withdraw this sum of cash. it must be miltiple 10");
 	}
 	unsigned long tmp = cash;
@@ -34,12 +34,12 @@ std::string ATM::withdrawMoney(unsigned long cash)
 
 		unsigned int thousands = (cash / THOUSAND < getThousands()) ? (cash / THOUSAND) : getThousands();
 		cash -= thousands * THOUSAND;
-		setThousands(getThousands() - thousands);		
+		setThousands(getThousands() - thousands);
 
 		unsigned int fiveHundreds = (cash / FIVE_HUNDRED < getFiveHundreds()) ? (cash / FIVE_HUNDRED) : getFiveHundreds();
 		cash -= fiveHundreds * FIVE_HUNDRED;
 		setFiveHundreds(getFiveHundreds() - fiveHundreds);
-		
+
 		unsigned int hundreds = (cash / HUNDRED < getHundreds()) ? (cash / HUNDRED) : getHundreds();
 		cash -= hundreds * HUNDRED;
 		setHundreds(getHundreds() - hundreds);
@@ -147,13 +147,13 @@ std::ostream& operator<<(std::ostream& out, const ATM& b)
 {
 	out << "ATM id: " << b.getId() <<std::endl
 		<< "max withdraw: " << b.getMaxCash() << std::endl
-		<< "min withdraw: " << b.getminBill() << std::endl 
-		<< "deposit: " << b.getDeposit() << std::endl 
+		<< "min withdraw: " << b.getminBill() << std::endl
+		<< "deposit: " << b.getDeposit() << std::endl
 		<< "Banknotes:" << std::endl
-		<< "1000p: " << b.getThousands() << std::endl 
-		<< "500p: " << b.getFiveHundreds() << std::endl 
-		<< "100p: " << b.getHundreds() << std::endl 
-		<< "50p: " << b.getFiftys() << std::endl 
+		<< "1000p: " << b.getThousands() << std::endl
+		<< "500p: " << b.getFiveHundreds() << std::endl
+		<< "100p: " << b.getHundreds() << std::endl
+		<< "50p: " << b.getFiftys() << std::endl
 		<< "10p: " << b.getTens() << std::endl;
 	return out;
 }

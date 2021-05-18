@@ -15,12 +15,12 @@
  * \brief Класс ATM , моделирующий работу банкомата
  */
 class ATM
-{	
+{
 public:
 	/**
 	* \brief Конструктор по умолчанию
 	*/
-    ATM() = default;   
+    ATM() = default;
 	/**
 	* \brief Конструктор параметризованный
 	*/
@@ -36,7 +36,7 @@ public:
 	/**
 	* \brief Метод ввода купюр в АТМ
 	*/
-	unsigned long putMoneyIn(unsigned short oneThousand=0, unsigned short fiveHundred=0, unsigned short oneHundred=0, unsigned short fifty=0, unsigned short ten=0);
+	unsigned long putMoneyIn(const unsigned short oneThousand=0, const unsigned short fiveHundred=0, const unsigned short oneHundred=0, const unsigned short fifty=0, const unsigned short ten=0);
 	/**
 	* \brief Метод снятия суммы из АТМ
 	*/
@@ -55,7 +55,7 @@ public:
 	* \brief Перегруженный оператор вывода
 	*/
 	friend std::ostream& operator<< (std::ostream& out, const ATM& b);
-	
+
 private:
 	/**
 	* \brief enum с номиналами банкнот
@@ -78,22 +78,22 @@ private:
 		unsigned short fiveHundred = 0;
 		unsigned short oneThousand = 0;
 	}repository;
-
+    static constexpr long MULTIPLICITY_OF_SUM = 10;
 	unsigned int id = 1;
 	unsigned long maxCash = 250000;
 	unsigned long minBill = 50;
-	
+
 	//геттеры
 	unsigned int getId() const;
 	unsigned long getMaxCash() const;
 	unsigned long getminBill() const;
-	
+
 	unsigned short getTens() const;
 	unsigned short getFiftys() const;
 	unsigned short getHundreds() const;
 	unsigned short getFiveHundreds() const;
 	unsigned short getThousands() const;
-	
+
 	unsigned long getDeposit() const;
 
 	//сеттеры
