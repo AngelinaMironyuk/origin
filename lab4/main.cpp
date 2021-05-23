@@ -15,9 +15,6 @@ void menu()
 int main() {
     while (true)
     {
-        auto cl = Cilinder();
-        auto cb = Cube();
-        auto t = Tetrahedron();
         int i;
         menu();
         cin >> i;
@@ -25,6 +22,7 @@ int main() {
         {
         case 0:
         {
+            auto cl = Cilinder();
             cin >> cl;
             cl.getArea();
             cl.getPerimeter();
@@ -33,6 +31,7 @@ int main() {
         }
         case 1:
         {
+            auto cb = Cube();
             cin >> cb;
             cb.getArea();
             cb.getPerimeter();
@@ -41,6 +40,7 @@ int main() {
         }
         case 2:
         {
+            auto t = Tetrahedron();
             cin >> t;
             t.getArea();
             t.getPerimeter();

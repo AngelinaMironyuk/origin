@@ -9,7 +9,7 @@ protected:
     /**
     * \brief Деструктор
     */
-    ~Figure() = default;
+    ~Figure() {};
     /**
     * \brief Периметр
     */
@@ -52,6 +52,10 @@ private:
 
 public:
     /**
+    * \brief Деструктор
+    */
+    ~Cilinder() = default;
+    /**
     * \brief Конструктор по умолчанию
     */
     Cilinder() = default;
@@ -86,6 +90,10 @@ private:
     static constexpr int ADGES_OF_CUBE = 12;
 public:
     /**
+    * \brief Деструктор
+    */
+    ~Cube() = default;
+    /**
     * \brief Конструктор по умолчанию
     */
     Cube() = default;
@@ -119,6 +127,10 @@ private:
     static constexpr int ADGES_OF_TETR = 6;
     static constexpr int FACTOR_AREA_TETR = sqrt(3);
 public:
+    /**
+    * \brief Деструктор
+    */
+    ~Tetrahedron() = default;
     /**
     * \brief Конструктор по умолчанию
     */
